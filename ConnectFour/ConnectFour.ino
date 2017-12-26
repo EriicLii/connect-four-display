@@ -1,5 +1,4 @@
 
-//xdxd
 /////////
 //GLOBALS
 const int timePeriod = 100;
@@ -105,69 +104,6 @@ void winLED(){
     board[5][4] = 3;
     board[5][5] = 3;
     board[4][6] = 3;
-//    //THIS INDICATES THE WINNING COMBINATION IS A ROW
-//    if(y2 == y1){
-//      board[y1][x1] = 3;
-//      board[y2][x2] = 3;
-//
-//      if(x1 < x2){
-//        board[y1][x1 + 1] = 3;
-//        board[y1][x1 + 2] = 3;
-//      }
-//      else{
-//        board[y1][x2 + 1] = 3;
-//        board[y1][x2 + 2] = 3;
-//        
-//      }
-//    }
-//    //THIS INDICATES THE WINNING COMBINATION IS A COLUMN
-//    else if(x2 == x1){
-//      board[y1][x1] = 3;
-//      board[y2][x2] = 3;
-//
-//      if(y1 < y2){
-//        board[y1 + 1][x1] = 3;
-//        board[y1 + 2][x1] = 3;
-//      }
-//      else{
-//        board[y2 + 1][x2] = 3;
-//        board[y2 + 2][x2] = 3;
-//        
-//      }
-//    }
-//    //THIS INDICATES THE WINNING COMBINATION IS A DIAGONAL
-//    else{
-//      board[y1][x1] = 3;
-//      board[y2][x2] = 3;
-//
-//      
-//      //THE FOLLOWING IS CHECKING FOR DIFFERENT POSSIBLE TYPES OF DIAGONALS
-//      
-//      if(x1 < x2){
-//        if(y1 < y2){
-//          board[x1 + 1][y1 + 1] = 3;
-//          board[x1 + 2][y1 + 2] = 3;
-//        }
-//
-//        else{
-//          board[x1 + 1][y1 -1] = 3;
-//          board[x1 + 2][y1 - 2] = 3;
-//        }
-//      }
-//      else{
-//        if(y2 < y1){
-//          board[x2 + 1][y2 + 1] = 3;
-//          board[x2 + 2][y2 + 2] = 3;
-//        }
-//
-//        else{
-//          board[x2 + 1][y2 -1] = 3;
-//          board[x2 + 2][y2 - 2] = 3;
-//        }
-//      }
-//    }
-}
-
 
 //PUSHES BINARY VALUES TO THE SHIFT REGISTERS TO DISPLAY THE BOARD ON THE MATRIX
 void drawBoard(){
@@ -214,36 +150,13 @@ void loop() {
       winLED();
       updatePins();
       drawBoard();
-      /*
-      while(Serial.available() == 0){
-        
-      }
-      
-      int c1 = Serial.parseInt();
 
-      if(c1 % 10 != 0 || (int)c1/10 != 0){
-        c1 = c1 - 1;
-      }
-      while(Serial.available() == 0){
-        
-      }
-      int c2 = Serial.parseInt();
-      if(c2 % 10 != 0 || (int)c2/10 != 0){
-        c2 = c2 - 1;
-      }
-      winLED((int)(c1 / 10),(int)(c1 % 10),(int)(c2 / 10),(int)(c2 % 10));
-      */
       updatePins();
       for(int i = 0; i < 500; i++){
         drawBoard();
       }
       flushScreen();
     }
-
-    //IF THE CODE RECIEVES A 64 THEN THE BOARD HAS TO BE RESET
-    //else if(x == 64){
-    //  flushScreen();
-    //}
 
     //THIS IS A PLAYER OR AI MAKING A MOVE
     else{
